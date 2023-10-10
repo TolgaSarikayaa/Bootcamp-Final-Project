@@ -13,6 +13,7 @@ class HomePageVC: UIViewController {
     // MARK: - UI Elements
     @IBOutlet weak var collectionViewProduct: UICollectionView!
     
+    @IBOutlet weak var searchbar: UISearchBar!
     
     var productsList = [Product]()
     
@@ -21,6 +22,8 @@ class HomePageVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchbar.delegate = self
 
         collectionViewProduct.delegate = self
         collectionViewProduct.dataSource = self
@@ -49,7 +52,7 @@ class HomePageVC: UIViewController {
 
 }
 
-extension HomePageVC : UICollectionViewDelegate, UICollectionViewDataSource {
+extension HomePageVC : UICollectionViewDelegate, UICollectionViewDataSource, CellProtokol {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return productsList.count
     }
@@ -65,11 +68,16 @@ extension HomePageVC : UICollectionViewDelegate, UICollectionViewDataSource {
             }
         }
         
+        
+        
         cell.priceLabel.text = "\(product.yemek_fiyat!) $"
         
         cell.layer.borderColor = UIColor.lightGray.cgColor
         cell.layer.borderWidth = 0.3
         cell.layer.cornerRadius = 12.0
+        
+        cell.cellProtokol = self
+        cell.indexPath = indexPath
         
         return cell
         
@@ -93,4 +101,15 @@ extension HomePageVC : UICollectionViewDelegate, UICollectionViewDataSource {
         }
     }
     
+    func addButtonClicked(indexPath: IndexPath) {
+        let product = productsList[indexPath.row]
+        print("Button clicked")
+    }
+    
+}
+
+extension HomePageVC : UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.search(searchWord: searchText)
+    }
 }

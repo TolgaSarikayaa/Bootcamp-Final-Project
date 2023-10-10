@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol CellProtokol {
+    func addButtonClicked(indexPath: IndexPath)
+}
+
 class productsCell: UICollectionViewCell {
     
 
@@ -16,14 +20,15 @@ class productsCell: UICollectionViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     
     
-    
+    var cellProtokol: CellProtokol?
+    var indexPath: IndexPath?
     
     
     
     // MARK: - Action
    
     @IBAction func AddButton(_ sender: Any) {
-        
+        cellProtokol?.addButtonClicked(indexPath: indexPath!)
     }
     
     

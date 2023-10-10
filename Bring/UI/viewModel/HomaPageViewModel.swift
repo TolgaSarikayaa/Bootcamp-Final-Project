@@ -20,4 +20,8 @@ class HomaPageViewModel {
     func uploadProduct() {
         productRepo.uploadProducts()
     }
+    
+    func search(searchWord: String) {
+        productRepo.search(searchWord: searchWord)
+    }
 }
