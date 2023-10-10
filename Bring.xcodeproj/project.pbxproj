@@ -24,6 +24,7 @@
 		14A5E9412AD447B1006A9D57 /* ProductsDaoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A5E9402AD447B1006A9D57 /* ProductsDaoRepository.swift */; };
 		14A5E9432AD44815006A9D57 /* HomaPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A5E9422AD44815006A9D57 /* HomaPageViewModel.swift */; };
 		14A5E9452AD450F8006A9D57 /* ProductsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A5E9442AD450F8006A9D57 /* ProductsResponse.swift */; };
+		14A5E9472AD54F5A006A9D57 /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A5E9462AD54F5A006A9D57 /* DetailsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		14A5E9402AD447B1006A9D57 /* ProductsDaoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsDaoRepository.swift; sourceTree = "<group>"; };
 		14A5E9422AD44815006A9D57 /* HomaPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomaPageViewModel.swift; sourceTree = "<group>"; };
 		14A5E9442AD450F8006A9D57 /* ProductsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsResponse.swift; sourceTree = "<group>"; };
+		14A5E9462AD54F5A006A9D57 /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				14A5E8F72AD43551006A9D57 /* HomePageVC.swift */,
+				14A5E9462AD54F5A006A9D57 /* DetailsVC.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				14A5E9412AD447B1006A9D57 /* ProductsDaoRepository.swift in Sources */,
 				14A5E8F62AD434D9006A9D57 /* Product.swift in Sources */,
 				14A5E8F82AD43551006A9D57 /* HomePageVC.swift in Sources */,
+				14A5E9472AD54F5A006A9D57 /* DetailsVC.swift in Sources */,
 				14A5E8F42AD433F0006A9D57 /* productsCell.swift in Sources */,
 				14A5E8BE2AD420B8006A9D57 /* AppDelegate.swift in Sources */,
 				14A5E9452AD450F8006A9D57 /* ProductsResponse.swift in Sources */,

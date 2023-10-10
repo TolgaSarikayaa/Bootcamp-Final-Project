@@ -10,7 +10,7 @@ import Kingfisher
 
 class HomePageVC: UIViewController {
 
-    
+    // MARK: - UI Elements
     @IBOutlet weak var collectionViewProduct: UICollectionView!
     
     
@@ -65,20 +65,32 @@ extension HomePageVC : UICollectionViewDelegate, UICollectionViewDataSource {
             }
         }
         
+        cell.priceLabel.text = "\(product.yemek_fiyat!) $"
+        
         cell.layer.borderColor = UIColor.lightGray.cgColor
         cell.layer.borderWidth = 0.3
-        cell.layer.cornerRadius = 10.0
+        cell.layer.cornerRadius = 12.0
         
         return cell
         
     }
     
-    /*
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let product = productsList[indexPath.row]
         
+        performSegue(withIdentifier: "toDetail", sender: product)
+        
         
     }
-    */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetail" {
+            if let product = sender as? Product {
+                let destinationVC = segue.destination as! DetailsVC
+                destinationVC.product = product
+            }
+        }
+    }
     
 }

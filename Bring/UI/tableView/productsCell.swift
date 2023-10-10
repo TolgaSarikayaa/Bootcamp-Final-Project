@@ -13,7 +13,8 @@ class productsCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     
     
-   
+    @IBOutlet weak var priceLabel: UILabel!
+    
     
     
     
@@ -21,9 +22,10 @@ class productsCell: UICollectionViewCell {
     
     // MARK: - Action
    
-    @IBAction func button(_ sender: Any) {
+    @IBAction func AddButton(_ sender: Any) {
         
     }
+    
     
     
 }
