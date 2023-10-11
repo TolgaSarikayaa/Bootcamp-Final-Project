@@ -73,7 +73,7 @@ extension HomePageVC : UICollectionViewDelegate, UICollectionViewDataSource, Cel
         cell.priceLabel.text = "\(product.yemek_fiyat!) $"
         
         cell.layer.borderColor = UIColor.lightGray.cgColor
-        cell.layer.borderWidth = 0.3
+        cell.layer.borderWidth = 0.5
         cell.layer.cornerRadius = 12.0
         
         cell.cellProtokol = self

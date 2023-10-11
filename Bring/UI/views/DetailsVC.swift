@@ -22,12 +22,12 @@ class DetailsVC: UIViewController {
     
     var product : Product?
     
-    var numberOfProduct = 0
+    var numberOfProduct = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        productNumber.text = "0"
+        productNumber.text = "1"
         
         if let p = product {
             productNameLabel.text = p.yemek_adi
@@ -53,13 +53,22 @@ class DetailsVC: UIViewController {
         if numberOfProduct > 0 {
             numberOfProduct -= 1
             productNumber.text = "\(numberOfProduct)"
+            
+    
         }
       
     }
     
     @IBAction func plusButton(_ sender: Any) {
-        numberOfProduct += 1
-        productNumber.text = "\(numberOfProduct)"
+        
+        if let p = product, let priceString = p.yemek_fiyat, let price = Int(priceString) {
+            numberOfProduct += 1
+            productNumber.text = "\(numberOfProduct)"
+            let totalPrice = numberOfProduct * price
+            productPriceLabel.text = "\(totalPrice) $"
+        }
+       
+       
     }
     
     @IBAction func AddToButton(_ sender: Any) {
