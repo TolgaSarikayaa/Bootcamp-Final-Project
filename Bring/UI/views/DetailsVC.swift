@@ -20,12 +20,34 @@ class DetailsVC: UIViewController {
     
     @IBOutlet weak var productPriceLabel: UILabel!
     
+    @IBOutlet weak var minLabel: UILabel!
+    
+    @IBOutlet weak var versandLabel: UILabel!
+    
+    @IBOutlet weak var rabatLabel: UILabel!
+    
+  
+    
+    
     var product : Product?
     
     var numberOfProduct = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+       
+        
+        minLabel.layer.masksToBounds = true
+        minLabel.layer.cornerRadius = 5
+        minLabel.adjustsFontSizeToFitWidth = true
+        minLabel.minimumScaleFactor = 0.2
+        versandLabel.layer.masksToBounds = true
+        versandLabel.layer.cornerRadius = 5
+        rabatLabel.layer.masksToBounds = true
+        rabatLabel.layer.cornerRadius = 5
+        
+        
         
         productNumber.text = "1"
         
@@ -50,11 +72,15 @@ class DetailsVC: UIViewController {
     
     
     @IBAction func minButton(_ sender: Any) {
-        if numberOfProduct > 0 {
-            numberOfProduct -= 1
-            productNumber.text = "\(numberOfProduct)"
-            
-    
+        
+        if let p = product, let priceString = p.yemek_fiyat, let price = Int(priceString) {
+            if numberOfProduct > 0 {
+                numberOfProduct -= 1
+                productNumber.text = "\(numberOfProduct)"
+                let totalPrice = numberOfProduct * price
+                productPriceLabel.text = "\(totalPrice) $"
+                
+            }
         }
       
     }
