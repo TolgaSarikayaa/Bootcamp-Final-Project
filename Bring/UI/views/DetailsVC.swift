@@ -27,7 +27,7 @@ class DetailsVC: UIViewController {
     @IBOutlet weak var rabatLabel: UILabel!
     
   
-    
+    var viewModel = BagViewModel()
     
     var product : Product?
     
@@ -98,7 +98,9 @@ class DetailsVC: UIViewController {
     }
     
     @IBAction func AddToButton(_ sender: Any) {
-        
+        if let pn = productNameLabel.text, let pp = productPriceLabel.text, let pnum = productNumber.text ,let p = product {
+            viewModel.addToBag(yemek_adi: pn, yemek_resim_adi: p.yemek_resim_adi!, yemek_fiyat: pp, yemek_siparis_adet: pnum, kullanici_adi: "Tolga")
+        }
     }
     
 

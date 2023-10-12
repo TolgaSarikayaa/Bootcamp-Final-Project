@@ -27,6 +27,11 @@
 		14A5E9472AD54F5A006A9D57 /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A5E9462AD54F5A006A9D57 /* DetailsVC.swift */; };
 		14A5E9492AD6B3AF006A9D57 /* BagVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A5E9482AD6B3AF006A9D57 /* BagVC.swift */; };
 		14A5E94B2AD6B3DA006A9D57 /* BagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A5E94A2AD6B3DA006A9D57 /* BagCell.swift */; };
+		14A5E94D2AD7E0DD006A9D57 /* Bag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A5E94C2AD7E0DD006A9D57 /* Bag.swift */; };
+		14A5E94F2AD7E208006A9D57 /* CRUDResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A5E94E2AD7E208006A9D57 /* CRUDResponse.swift */; };
+		14A5E9512AD7E27A006A9D57 /* BagDaoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A5E9502AD7E27A006A9D57 /* BagDaoRepository.swift */; };
+		14A5E9532AD7E3A4006A9D57 /* BagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A5E9522AD7E3A4006A9D57 /* BagViewModel.swift */; };
+		14A5E9552AD7E3E4006A9D57 /* BagResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A5E9542AD7E3E4006A9D57 /* BagResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +73,11 @@
 		14A5E9462AD54F5A006A9D57 /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
 		14A5E9482AD6B3AF006A9D57 /* BagVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagVC.swift; sourceTree = "<group>"; };
 		14A5E94A2AD6B3DA006A9D57 /* BagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagCell.swift; sourceTree = "<group>"; };
+		14A5E94C2AD7E0DD006A9D57 /* Bag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bag.swift; sourceTree = "<group>"; };
+		14A5E94E2AD7E208006A9D57 /* CRUDResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRUDResponse.swift; sourceTree = "<group>"; };
+		14A5E9502AD7E27A006A9D57 /* BagDaoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagDaoRepository.swift; sourceTree = "<group>"; };
+		14A5E9522AD7E3A4006A9D57 /* BagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagViewModel.swift; sourceTree = "<group>"; };
+		14A5E9542AD7E3E4006A9D57 /* BagResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +175,9 @@
 			children = (
 				14A5E8F52AD434D9006A9D57 /* Product.swift */,
 				14A5E9442AD450F8006A9D57 /* ProductsResponse.swift */,
+				14A5E94C2AD7E0DD006A9D57 /* Bag.swift */,
+				14A5E9542AD7E3E4006A9D57 /* BagResponse.swift */,
+				14A5E94E2AD7E208006A9D57 /* CRUDResponse.swift */,
 			);
 			path = entity;
 			sourceTree = "<group>";
@@ -202,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				14A5E9422AD44815006A9D57 /* HomaPageViewModel.swift */,
+				14A5E9522AD7E3A4006A9D57 /* BagViewModel.swift */,
 			);
 			path = viewModel;
 			sourceTree = "<group>";
@@ -217,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				14A5E9402AD447B1006A9D57 /* ProductsDaoRepository.swift */,
+				14A5E9502AD7E27A006A9D57 /* BagDaoRepository.swift */,
 			);
 			path = repo;
 			sourceTree = "<group>";
@@ -367,11 +382,16 @@
 				14A5E8F62AD434D9006A9D57 /* Product.swift in Sources */,
 				14A5E8F82AD43551006A9D57 /* HomePageVC.swift in Sources */,
 				14A5E9472AD54F5A006A9D57 /* DetailsVC.swift in Sources */,
+				14A5E9552AD7E3E4006A9D57 /* BagResponse.swift in Sources */,
 				14A5E8F42AD433F0006A9D57 /* productsCell.swift in Sources */,
 				14A5E8BE2AD420B8006A9D57 /* AppDelegate.swift in Sources */,
 				14A5E9492AD6B3AF006A9D57 /* BagVC.swift in Sources */,
 				14A5E9452AD450F8006A9D57 /* ProductsResponse.swift in Sources */,
 				14A5E8C02AD420B8006A9D57 /* SceneDelegate.swift in Sources */,
+				14A5E94D2AD7E0DD006A9D57 /* Bag.swift in Sources */,
+				14A5E9512AD7E27A006A9D57 /* BagDaoRepository.swift in Sources */,
+				14A5E9532AD7E3A4006A9D57 /* BagViewModel.swift in Sources */,
+				14A5E94F2AD7E208006A9D57 /* CRUDResponse.swift in Sources */,
 				14A5E94B2AD6B3DA006A9D57 /* BagCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

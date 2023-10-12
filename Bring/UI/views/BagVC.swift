@@ -13,6 +13,9 @@ class BagVC: UIViewController {
     
     @IBOutlet weak var bagTableView: UITableView!
     
+    var viewModel = BagViewModel()
+    
+    var bagList = [Bag]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
