@@ -25,6 +25,17 @@ class BagVC: UIViewController {
         
         bagTableView.separatorColor = UIColor(white: 0.96, alpha: 1)
         
+        _ = viewModel.bagLists.subscribe(onNext: { list in
+            self.bagList = list
+            DispatchQueue.main.async {
+                self.bagTableView.reloadData()
+            }
+        })
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.uploadBag()
     }
     
 
@@ -34,12 +45,22 @@ class BagVC: UIViewController {
 
 extension BagVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return bagList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        let bag = bagList[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "bagCell") as! BagCell
+        cell.urunSayisiLabel.text = bag.yemek_siparis_adet
+        cell.yemekAdiLabel.text = bag.yemek_adi
+        cell.yemekFiyatiLabel.text = bag.yemek_fiyat
+       
+        if let url = URL(string: "http://kasimadalan.pe.hu/yemekler/resimler/\(bag.yemek_resim_adi!)") {
+            DispatchQueue.main.async {
+                cell.imageViewBag.kf.setImage(with: url)
+            }
+        }
+        
         
         cell.backgroundColor = UIColor(white: 0.95, alpha: 1)
         cell.cellbackground.layer.cornerRadius = 10.0
