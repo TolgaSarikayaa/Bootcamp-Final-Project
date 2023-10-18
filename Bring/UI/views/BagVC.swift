@@ -15,17 +15,21 @@ class BagVC: UIViewController {
     
     var viewModel = BagViewModel()
     
-    var bagList = [Bag]()
+    var bagList = [BringTheFood]()
     
+   
+   
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
 
         bagTableView.delegate = self
         bagTableView.dataSource = self
         
         bagTableView.separatorColor = UIColor(white: 0.96, alpha: 1)
         
-        _ = viewModel.bagLists.subscribe(onNext: { list in
+        _ = viewModel.bringTheFood.subscribe(onNext: { list in
             self.bagList = list
             DispatchQueue.main.async {
                 self.bagTableView.reloadData()
@@ -34,26 +38,27 @@ class BagVC: UIViewController {
         
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         viewModel.uploadBag()
     }
     
-
   
 
 }
 
 extension BagVC : UITableViewDelegate, UITableViewDataSource {
+   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return bagList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let bag = bagList[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "bagCell") as! BagCell
-        cell.urunSayisiLabel.text = bag.yemek_siparis_adet
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BagCell") as! BagCell
+        cell.urunSayisiLabel.text = String(bag.yemek_siparis_adet!)
         cell.yemekAdiLabel.text = bag.yemek_adi
-        cell.yemekFiyatiLabel.text = bag.yemek_fiyat
+        cell.yemekFiyatiLabel.text = String(bag.yemek_fiyat!)
        
         if let url = URL(string: "http://kasimadalan.pe.hu/yemekler/resimler/\(bag.yemek_resim_adi!)") {
             DispatchQueue.main.async {
@@ -65,8 +70,6 @@ extension BagVC : UITableViewDelegate, UITableViewDataSource {
         cell.backgroundColor = UIColor(white: 0.95, alpha: 1)
         cell.cellbackground.layer.cornerRadius = 10.0
         cell.selectionStyle = .none
-        
-        
         return cell
     }
     

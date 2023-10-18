@@ -99,8 +99,9 @@ class DetailsVC: UIViewController {
     }
     
     @IBAction func AddToButton(_ sender: Any) {
-        if let pn = productNameLabel.text, let pp = productPriceLabel.text, let pnum = productNumber.text ,let p = product {
-            viewModel.addToBag(yemek_adi: pn, yemek_resim_adi: p.yemek_resim_adi!, yemek_fiyat: Int(p.yemek_fiyat!)!, yemek_siparis_adet: Int(pnum)!, kullanici_adi: "tolga")
+        if  let pnum = productNumber.text ,let p = product {
+            viewModel.addToBag(yemek_adi: p.yemek_adi!, yemek_resim_adi: p.yemek_resim_adi!, yemek_fiyat: Int(p.yemek_fiyat!)!, yemek_siparis_adet: Int(pnum)!, kullanici_adi:"tolga_sarikaya")
+            //self.tabBarController?.selectedIndex = 1
         }
     }
     

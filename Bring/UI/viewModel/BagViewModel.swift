@@ -12,12 +12,19 @@ class BagViewModel {
     var bagrepo = BagDaoRepository()
     var bagLists = BehaviorSubject<[Bag]>(value: [Bag]())
     
+    var bringTheFood = BehaviorSubject<[BringTheFood]>(value: [BringTheFood]())
+    
+    init() {
+      bringTheFood = bagrepo.bagList
+        uploadBag()
+    }
+    
     func addToBag(yemek_adi: String, yemek_resim_adi: String, yemek_fiyat: Int, yemek_siparis_adet: Int, kullanici_adi: String) {
         bagrepo.addToBag(yemek_adi: yemek_adi, yemek_resim_adi: yemek_resim_adi, yemek_fiyat: yemek_fiyat, yemek_siparis_adet: yemek_siparis_adet, kullanici_adi: kullanici_adi)
     }
     
     func uploadBag() {
-        bagrepo.uploadBag()
+        bagrepo.uploadBag(kullanici_adi:"tolga_sarikaya")
     }
     
 }

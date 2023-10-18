@@ -10,7 +10,7 @@ import Alamofire
 import RxSwift
 
 class BagDaoRepository {
-    var bagList = BehaviorSubject<[Bag]>(value: [Bag]())
+    var bagList = BehaviorSubject<[BringTheFood]>(value: [BringTheFood]())
     
     
     func addToBag(yemek_adi: String, yemek_resim_adi: String, yemek_fiyat: Int, yemek_siparis_adet: Int, kullanici_adi: String) {
@@ -29,11 +29,14 @@ class BagDaoRepository {
         }
     }
     
-    func uploadBag() {
-        AF.request("http://kasimadalan.pe.hu/yemekler/sepettekiYemekleriGetir.php", method: .get).response { response in
+    func uploadBag(kullanici_adi: String) {
+        
+       let params: Parameters = ["kullanici_adi":kullanici_adi]
+        
+        AF.request("http://kasimadalan.pe.hu/yemekler/sepettekiYemekleriGetir.php", method: .post, parameters: params).response { response in
             if let data = response.data {
                 do {
-                    let answer = try JSONDecoder().decode(BagResponse.self, from: data)
+                    let answer = try JSONDecoder().decode(BringTheFoodResponse.self, from: data)
                     if let list = answer.sepet_yemekler {
                         self.bagList.onNext(list)
                     }
