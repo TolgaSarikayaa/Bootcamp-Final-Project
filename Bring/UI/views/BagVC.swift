@@ -73,5 +73,23 @@ extension BagVC : UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { contextualAction, view, bool in
+            let product = self.bagList[indexPath.row]
+            
+            let alert = UIAlertController(title: "Delete", message: "\(product.yemek_adi!) should it be deleted", preferredStyle: UIAlertController.Style.alert)
+            
+            let cancelAction = UIAlertAction(title: "cancel", style: .cancel)
+            alert.addAction(cancelAction)
+            
+            let yesAction = UIAlertAction(title: "Yes", style: UIAlertAction.Style.destructive) { action in
+                self.viewModel.delete(sepet_yemek_id: Int(product.sepet_yemek_id!)!, kullanici_adi: product.kullanici_adi!)
+            }
+            alert.addAction(yesAction)
+            self.present(alert, animated: true)
+        }
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+    
     
 }

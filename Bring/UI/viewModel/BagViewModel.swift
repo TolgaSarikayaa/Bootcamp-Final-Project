@@ -27,4 +27,8 @@ class BagViewModel {
         bagrepo.uploadBag(kullanici_adi:"tolga_sarikaya")
     }
     
+    func delete(sepet_yemek_id: Int, kullanici_adi: String) {
+        bagrepo.delete(sepet_yemek_id: sepet_yemek_id, kullanici_adi: kullanici_adi)
+    }
+    
 }

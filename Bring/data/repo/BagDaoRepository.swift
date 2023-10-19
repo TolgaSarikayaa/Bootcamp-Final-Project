@@ -47,4 +47,22 @@ class BagDaoRepository {
         }
     }
     
+    func delete(sepet_yemek_id: Int, kullanici_adi: String) {
+        let params : Parameters = ["sepet_yemek_id": sepet_yemek_id, "kullanici_adi": kullanici_adi]
+        
+        AF.request("http://kasimadalan.pe.hu/yemekler/sepettenYemekSil.php", method: .post, parameters: params).response { response in
+            if let data = response.data {
+                do {
+                    let answer = try JSONDecoder().decode(CRUDResponse.self, from: data)
+                    print("success: \(answer.success!)")
+                    print("message: \(answer.message!)")
+                    self.uploadBag(kullanici_adi: "tolga_sarikaya")
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
+        }
+        
+    }
+    
 }
