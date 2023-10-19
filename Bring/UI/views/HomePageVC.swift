@@ -16,9 +16,14 @@ class HomePageVC: UIViewController {
     @IBOutlet weak var searchbar: UISearchBar!
     
     var productsList = [Product]()
+   
+    var bagLists = [Bag]()
     
-    
+    var bagViewModel = BagViewModel()
+ 
    var viewModel = HomaPageViewModel()
+    
+    var productNumber = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,7 +108,9 @@ extension HomePageVC : UICollectionViewDelegate, UICollectionViewDataSource, Cel
     
     func addButtonClicked(indexPath: IndexPath) {
         let product = productsList[indexPath.row]
-        print("Button clicked")
+        
+        bagViewModel.addToBag(yemek_adi: product.yemek_adi!, yemek_resim_adi: product.yemek_resim_adi!, yemek_fiyat: Int(product.yemek_fiyat!)!, yemek_siparis_adet: productNumber, kullanici_adi:"tolga_sarikaya")
+          
     }
     
 }

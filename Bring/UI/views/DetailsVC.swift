@@ -103,7 +103,7 @@ class DetailsVC: UIViewController {
             let totalPrice = quantity * price
 
            viewModel.addToBag(yemek_adi: p.yemek_adi!, yemek_resim_adi: p.yemek_resim_adi!, yemek_fiyat: totalPrice, yemek_siparis_adet: quantity, kullanici_adi:"tolga_sarikaya")
-            //self.tabBarController?.selectedIndex = 1
+             self.tabBarController?.selectedIndex = 1
         }
     }
     
