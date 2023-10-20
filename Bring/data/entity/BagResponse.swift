@@ -7,7 +7,9 @@
 
 import Foundation
 
+/*
 class BagResponse: Codable {
     var sepet_yemekler: [Bag]?
     var success: Int?
 }
+*/

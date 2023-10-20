@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		147CF7742ADFF20F0031E646 /* BringTheFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147CF7732ADFF20F0031E646 /* BringTheFood.swift */; };
 		147CF7762ADFFCD30031E646 /* BringTheFoodResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147CF7752ADFFCD30031E646 /* BringTheFoodResponse.swift */; };
+		147CF7782AE143270031E646 /* LaunchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147CF7772AE143270031E646 /* LaunchVC.swift */; };
+		147CF77B2AE149680031E646 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 147CF77A2AE149680031E646 /* Lottie */; };
+		147CF77D2AE149AB0031E646 /* cart.json in Resources */ = {isa = PBXBuildFile; fileRef = 147CF77C2AE149AB0031E646 /* cart.json */; };
 		14A5E8BE2AD420B8006A9D57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A5E8BD2AD420B8006A9D57 /* AppDelegate.swift */; };
 		14A5E8C02AD420B8006A9D57 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A5E8BF2AD420B8006A9D57 /* SceneDelegate.swift */; };
 		14A5E8C52AD420B8006A9D57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A5E8C32AD420B8006A9D57 /* Main.storyboard */; };
@@ -56,6 +59,8 @@
 /* Begin PBXFileReference section */
 		147CF7732ADFF20F0031E646 /* BringTheFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BringTheFood.swift; sourceTree = "<group>"; };
 		147CF7752ADFFCD30031E646 /* BringTheFoodResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BringTheFoodResponse.swift; sourceTree = "<group>"; };
+		147CF7772AE143270031E646 /* LaunchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchVC.swift; sourceTree = "<group>"; };
+		147CF77C2AE149AB0031E646 /* cart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cart.json; sourceTree = "<group>"; };
 		14A5E8BA2AD420B8006A9D57 /* Bring.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bring.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14A5E8BD2AD420B8006A9D57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14A5E8BF2AD420B8006A9D57 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +97,7 @@
 				14A5E93E2AD44758006A9D57 /* RxSwift in Frameworks */,
 				14A5E9372AD44706006A9D57 /* Kingfisher in Frameworks */,
 				14A5E93A2AD44720006A9D57 /* Alamofire in Frameworks */,
+				147CF77B2AE149680031E646 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +148,7 @@
 				14A5E8ED2AD43173006A9D57 /* data */,
 				14A5E8C32AD420B8006A9D57 /* Main.storyboard */,
 				14A5E8C62AD420BA006A9D57 /* Assets.xcassets */,
+				147CF77C2AE149AB0031E646 /* cart.json */,
 				14A5E8C82AD420BA006A9D57 /* LaunchScreen.storyboard */,
 				14A5E8CB2AD420BA006A9D57 /* Info.plist */,
 			);
@@ -213,6 +220,7 @@
 				14A5E8F72AD43551006A9D57 /* HomePageVC.swift */,
 				14A5E9462AD54F5A006A9D57 /* DetailsVC.swift */,
 				14A5E9482AD6B3AF006A9D57 /* BagVC.swift */,
+				147CF7772AE143270031E646 /* LaunchVC.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -262,6 +270,7 @@
 				14A5E9362AD44706006A9D57 /* Kingfisher */,
 				14A5E9392AD44720006A9D57 /* Alamofire */,
 				14A5E93D2AD44758006A9D57 /* RxSwift */,
+				147CF77A2AE149680031E646 /* Lottie */,
 			);
 			productName = Bring;
 			productReference = 14A5E8BA2AD420B8006A9D57 /* Bring.app */;
@@ -339,6 +348,7 @@
 				14A5E9352AD44706006A9D57 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				14A5E9382AD44720006A9D57 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				14A5E93B2AD44739006A9D57 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				147CF7792AE149680031E646 /* XCRemoteSwiftPackageReference "lottie-spm" */,
 			);
 			productRefGroup = 14A5E8BB2AD420B8006A9D57 /* Products */;
 			projectDirPath = "";
@@ -359,6 +369,7 @@
 				14A5E8CA2AD420BA006A9D57 /* LaunchScreen.storyboard in Resources */,
 				14A5E8C72AD420BA006A9D57 /* Assets.xcassets in Resources */,
 				14A5E8C52AD420B8006A9D57 /* Main.storyboard in Resources */,
+				147CF77D2AE149AB0031E646 /* cart.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +410,7 @@
 				147CF7762ADFFCD30031E646 /* BringTheFoodResponse.swift in Sources */,
 				147CF7742ADFF20F0031E646 /* BringTheFood.swift in Sources */,
 				14A5E9532AD7E3A4006A9D57 /* BagViewModel.swift in Sources */,
+				147CF7782AE143270031E646 /* LaunchVC.swift in Sources */,
 				14A5E94F2AD7E208006A9D57 /* CRUDResponse.swift in Sources */,
 				14A5E94B2AD6B3DA006A9D57 /* BagCell.swift in Sources */,
 			);
@@ -749,6 +761,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		147CF7792AE149680031E646 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.3.3;
+			};
+		};
 		14A5E9352AD44706006A9D57 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -776,6 +796,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		147CF77A2AE149680031E646 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 147CF7792AE149680031E646 /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
 		14A5E9362AD44706006A9D57 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 14A5E9352AD44706006A9D57 /* XCRemoteSwiftPackageReference "Kingfisher" */;

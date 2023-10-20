@@ -17,7 +17,7 @@ class HomePageVC: UIViewController {
     
     var productsList = [Product]()
    
-    var bagLists = [Bag]()
+    
     
     var bagViewModel = BagViewModel()
  

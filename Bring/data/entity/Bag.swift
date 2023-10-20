@@ -7,6 +7,7 @@
 
 import Foundation
 
+/*
 class Bag : Codable {
     var sepet_yemek_id: String?
     var yemek_adi: String?
@@ -31,3 +32,4 @@ class Bag : Codable {
     }
     
 }
+*/
