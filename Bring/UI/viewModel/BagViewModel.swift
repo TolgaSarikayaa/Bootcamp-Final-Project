@@ -10,7 +10,7 @@ import RxSwift
 
 class BagViewModel {
     var bagrepo = BagDaoRepository()
-    //var bagLists = BehaviorSubject<[Bag]>(value: [Bag]())
+ 
     
     var bringTheFood = BehaviorSubject<[BringTheFood]>(value: [BringTheFood]())
     

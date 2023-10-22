@@ -18,10 +18,12 @@ class BagVC: UIViewController {
     var bagList = [BringTheFood]()
     
    
+    
    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.trash, target: self, action: #selector(deleteButton))
         
 
         bagTableView.delegate = self
@@ -43,9 +45,11 @@ class BagVC: UIViewController {
         viewModel.uploadBag()
     }
     
-  
+    
 
 }
+
+
 
 extension BagVC : UITableViewDelegate, UITableViewDataSource {
    
@@ -56,9 +60,9 @@ extension BagVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let bag = bagList[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "BagCell") as! BagCell
-        cell.urunSayisiLabel.text = String(bag.yemek_siparis_adet!)
+        cell.urunSayisiLabel.text = "Stück:  \(String(bag.yemek_siparis_adet!))"
         cell.yemekAdiLabel.text = bag.yemek_adi
-        cell.yemekFiyatiLabel.text = String(bag.yemek_fiyat!)
+        cell.yemekFiyatiLabel.text = "Preis: \(String(bag.yemek_fiyat!))$"
        
         if let url = URL(string: "http://kasimadalan.pe.hu/yemekler/resimler/\(bag.yemek_resim_adi!)") {
             DispatchQueue.main.async {
@@ -89,6 +93,38 @@ extension BagVC : UITableViewDelegate, UITableViewDataSource {
             self.present(alert, animated: true)
         }
         return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return.delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { contextualAction, view, bool in
+                let product = self.bagList[indexPath.row]
+                
+                let alert = UIAlertController(title: "Delete", message: "\(product.yemek_adi!) should it be deleted", preferredStyle: UIAlertController.Style.alert)
+                
+                let cancelAction = UIAlertAction(title: "cancel", style: .cancel)
+                alert.addAction(cancelAction)
+                
+                let yesAction = UIAlertAction(title: "Yes", style: UIAlertAction.Style.destructive) { action in
+                    self.viewModel.delete(sepet_yemek_id: Int(product.sepet_yemek_id!)!, kullanici_adi: product.kullanici_adi!)
+                }
+                alert.addAction(yesAction)
+                self.present(alert, animated: true)
+            }
+        }
+        
+        
+    }
+    
+   
+    
+    @objc func deleteButton() {
+        let trashMode = bagTableView.isEditing
+        bagTableView.setEditing(!trashMode, animated: true)
     }
     
     
