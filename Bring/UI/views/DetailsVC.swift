@@ -103,8 +103,31 @@ class DetailsVC: UIViewController {
             let totalPrice = quantity * price
 
            viewModel.addToBag(yemek_adi: p.yemek_adi!, yemek_resim_adi: p.yemek_resim_adi!, yemek_fiyat: totalPrice, yemek_siparis_adet: quantity, kullanici_adi:"tolga_sarikaya")
-             self.tabBarController?.selectedIndex = 1
+           
+            handleSuccessfulAddition()
+            
+        } else {
+            handleError()
         }
+        
+    }
+    
+    func handleSuccessfulAddition() {
+        let alert = UIAlertController(title: "Successful", message: "Product added to bag", preferredStyle: UIAlertController.Style.alert)
+          
+        let okButton = UIAlertAction(title: "Okey", style: .destructive)
+        alert.addAction(okButton)
+        
+        self.present(alert, animated: true)
+    }
+    
+    func handleError() {
+        let alert = UIAlertController(title: "Error", message: "The product could not be added to the bag", preferredStyle: UIAlertController.Style.alert)
+          
+        let okButton = UIAlertAction(title: "Okey", style: .cancel)
+        alert.addAction(okButton)
+        
+        self.present(alert, animated: true)
     }
     
 

@@ -49,12 +49,15 @@ class HomePageVC: UIViewController {
         style.itemSize = CGSize(width: itemWidth, height: itemWidth * 1.6)
         
         collectionViewProduct.collectionViewLayout = style
-      
-        
-       
-    }
+      }
     
 
+}
+
+extension HomePageVC : UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.search(searchWord: searchText)
+    }
 }
 
 extension HomePageVC : UICollectionViewDelegate, UICollectionViewDataSource, CellProtokol {
@@ -74,7 +77,7 @@ extension HomePageVC : UICollectionViewDelegate, UICollectionViewDataSource, Cel
         }
         
         
-        
+        cell.nameLabel.text = product.yemek_adi
         cell.priceLabel.text = "\(product.yemek_fiyat!) $"
         
         cell.layer.borderColor = UIColor.lightGray.cgColor
@@ -110,13 +113,20 @@ extension HomePageVC : UICollectionViewDelegate, UICollectionViewDataSource, Cel
         let product = productsList[indexPath.row]
         
         bagViewModel.addToBag(yemek_adi: product.yemek_adi!, yemek_resim_adi: product.yemek_resim_adi!, yemek_fiyat: Int(product.yemek_fiyat!)!, yemek_siparis_adet: productNumber, kullanici_adi:"tolga_sarikaya")
+       
+        handleSuccessfulAddition()
+     
+    }
+    
+    func handleSuccessfulAddition() {
+        let alert = UIAlertController(title: "Successful", message: "Product added to bag", preferredStyle: UIAlertController.Style.alert)
           
+        let okButton = UIAlertAction(title: "Okey", style: .destructive)
+        alert.addAction(okButton)
+        
+        self.present(alert, animated: true)
     }
     
 }
 
-extension HomePageVC : UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        viewModel.search(searchWord: searchText)
-    }
-}
+

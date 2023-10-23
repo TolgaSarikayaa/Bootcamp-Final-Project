@@ -29,10 +29,10 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProductsCell" id="BDu-Xk-B04" customClass="productsCell" customModule="Bring" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="180" height="280"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="279"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="eNB-db-gGC">
-                                            <rect key="frame" x="0.0" y="0.0" width="180" height="280"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="180" height="279"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ayran" translatesAutoresizingMaskIntoConstraints="NO" id="eDj-Bh-bFl">
@@ -41,8 +41,20 @@
                                                         <constraint firstAttribute="height" constant="170" id="X0x-sy-KD1"/>
                                                     </constraints>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QD5-id-vkl">
-                                                    <rect key="frame" x="118" y="204" width="54" height="37"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6 $" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMc-yX-GI8">
+                                                    <rect key="frame" x="17" y="237" width="26" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="produkNameLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgs-hD-EVm">
+                                                    <rect key="frame" x="17" y="188" width="155" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QD5-id-vkl">
+                                                    <rect key="frame" x="118" y="229" width="54" height="37"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="54" id="tFy-ey-q3a"/>
                                                     </constraints>
@@ -53,24 +65,24 @@
                                                         <action selector="AddButton:" destination="BDu-Xk-B04" eventType="touchUpInside" id="UtO-29-bYn"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6 $" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMc-yX-GI8">
-                                                    <rect key="frame" x="17" y="212" width="26" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="rgs-hD-EVm" secondAttribute="bottom" constant="70" id="3go-7h-vCx"/>
+                                                <constraint firstItem="QD5-id-vkl" firstAttribute="top" secondItem="rgs-hD-EVm" secondAttribute="bottom" constant="20" id="7AN-9L-hLl"/>
                                                 <constraint firstItem="QD5-id-vkl" firstAttribute="trailing" secondItem="eNB-db-gGC" secondAttribute="trailingMargin" id="G3E-uT-qvq"/>
+                                                <constraint firstItem="rgs-hD-EVm" firstAttribute="trailing" secondItem="QD5-id-vkl" secondAttribute="trailing" id="JMg-Zf-gdT"/>
                                                 <constraint firstItem="eDj-Bh-bFl" firstAttribute="top" secondItem="eNB-db-gGC" secondAttribute="top" constant="8" id="Pf1-mW-eFF"/>
+                                                <constraint firstItem="rgs-hD-EVm" firstAttribute="leading" secondItem="cMc-yX-GI8" secondAttribute="leading" id="hEJ-Wf-ujC"/>
+                                                <constraint firstItem="rgs-hD-EVm" firstAttribute="top" secondItem="eDj-Bh-bFl" secondAttribute="bottom" constant="10" id="jJQ-Zj-pCM"/>
                                                 <constraint firstItem="eDj-Bh-bFl" firstAttribute="centerX" secondItem="eNB-db-gGC" secondAttribute="centerX" id="opo-GA-D3t"/>
                                                 <constraint firstItem="QD5-id-vkl" firstAttribute="leading" secondItem="cMc-yX-GI8" secondAttribute="trailing" constant="75" id="udX-nU-06h"/>
                                                 <constraint firstItem="cMc-yX-GI8" firstAttribute="firstBaseline" secondItem="QD5-id-vkl" secondAttribute="baseline" id="upB-at-d1n"/>
-                                                <constraint firstAttribute="bottom" secondItem="QD5-id-vkl" secondAttribute="bottom" constant="39" id="zHS-bc-4qe"/>
+                                                <constraint firstAttribute="bottom" secondItem="QD5-id-vkl" secondAttribute="bottom" constant="13" id="zHS-bc-4qe"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
                                             <outlet property="imageView" destination="eDj-Bh-bFl" id="eh6-5W-8cX"/>
+                                            <outlet property="nameLabel" destination="rgs-hD-EVm" id="xve-30-Gr9"/>
                                             <outlet property="priceLabel" destination="cMc-yX-GI8" id="8Da-Fb-JX2"/>
                                         </connections>
                                     </collectionViewCell>
@@ -303,19 +315,19 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="ZJT-og-Z2q">
                                                             <rect key="frame" x="160" y="31.666666666666657" width="90" height="95"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="yemekAdi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4R8-CI-R1e">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="yemekAdi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4R8-CI-R1e">
                                                                     <rect key="frame" x="0.0" y="0.0" width="90" height="23"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="yemekFiyati" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Unz-7X-qWW">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="yemekFiyati" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Unz-7X-qWW">
                                                                     <rect key="frame" x="0.0" y="41.000000000000007" width="81.333333333333329" height="18"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m19-g8-5AM">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Adet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m19-g8-5AM">
                                                                     <rect key="frame" x="0.0" y="77" width="32" height="18"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

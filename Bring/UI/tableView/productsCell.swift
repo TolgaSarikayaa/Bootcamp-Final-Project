@@ -19,6 +19,7 @@ class productsCell: UICollectionViewCell {
     
     @IBOutlet weak var priceLabel: UILabel!
     
+    @IBOutlet weak var nameLabel: UILabel!
     
     var cellProtokol: CellProtokol?
     var indexPath: IndexPath?
