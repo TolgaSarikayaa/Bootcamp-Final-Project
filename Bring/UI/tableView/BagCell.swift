@@ -21,6 +21,11 @@ class BagCell: UITableViewCell {
     
     @IBOutlet weak var urunSayisiLabel: UILabel!
     
+   
+    
+   
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
       

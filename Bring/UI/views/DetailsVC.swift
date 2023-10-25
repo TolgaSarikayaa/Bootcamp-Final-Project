@@ -106,6 +106,8 @@ class DetailsVC: UIViewController {
            
             handleSuccessfulAddition()
             
+            viewModel.updateTotalPriceLabel()
+            
         } else {
             handleError()
         }

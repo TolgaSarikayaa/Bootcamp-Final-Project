@@ -292,7 +292,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="180" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="nij-ws-tLh">
-                                <rect key="frame" x="0.0" y="44" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="44" width="393" height="640"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BagCell" id="6xc-7K-hQ7" customClass="BagCell" customModule="Bring" customModuleProvider="target">
@@ -363,19 +363,56 @@
                                 </prototypes>
                                 <sections/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gesamtpreis" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L1h-Sp-9r1">
+                                <rect key="frame" x="16" y="692" width="125" height="20.333333333333371"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="125" id="PgO-0I-3ey"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12$" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GIy-ca-fVa">
+                                <rect key="frame" x="312" y="692" width="65" height="20.333333333333371"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="65" id="tAS-XG-IX6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTu-hT-SAn">
+                                <rect key="frame" x="30" y="733.33333333333337" width="333" height="34.333333333333371"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Pay"/>
+                                <connections>
+                                    <action selector="payButton:" destination="I6u-zM-cHi" eventType="touchUpInside" id="bay-yh-kQb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nBN-wm-Dwy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="nij-ws-tLh" firstAttribute="top" secondItem="nBN-wm-Dwy" secondAttribute="top" id="2Hh-I6-UFY"/>
                             <constraint firstItem="nBN-wm-Dwy" firstAttribute="trailing" secondItem="nij-ws-tLh" secondAttribute="trailing" id="4XG-ph-b6h"/>
-                            <constraint firstItem="nBN-wm-Dwy" firstAttribute="bottom" secondItem="nij-ws-tLh" secondAttribute="bottom" id="j0j-u2-CfY"/>
+                            <constraint firstItem="GIy-ca-fVa" firstAttribute="trailing" secondItem="doW-jD-zOy" secondAttribute="trailingMargin" id="JIF-2p-VZb"/>
+                            <constraint firstItem="BTu-hT-SAn" firstAttribute="leading" secondItem="nBN-wm-Dwy" secondAttribute="leading" constant="30" id="Q1b-ra-23u"/>
+                            <constraint firstItem="L1h-Sp-9r1" firstAttribute="leading" secondItem="doW-jD-zOy" secondAttribute="leadingMargin" id="a1B-Ej-BSw"/>
+                            <constraint firstItem="BTu-hT-SAn" firstAttribute="top" secondItem="L1h-Sp-9r1" secondAttribute="bottom" constant="21" id="fe3-i7-PI5"/>
+                            <constraint firstItem="nBN-wm-Dwy" firstAttribute="bottom" secondItem="nij-ws-tLh" secondAttribute="bottom" constant="119" id="j0j-u2-CfY"/>
+                            <constraint firstItem="L1h-Sp-9r1" firstAttribute="top" secondItem="nij-ws-tLh" secondAttribute="bottom" constant="8" id="kZg-oI-WCE"/>
                             <constraint firstItem="nij-ws-tLh" firstAttribute="leading" secondItem="nBN-wm-Dwy" secondAttribute="leading" id="rug-X9-Pwi"/>
+                            <constraint firstItem="L1h-Sp-9r1" firstAttribute="baseline" secondItem="GIy-ca-fVa" secondAttribute="baseline" id="vRU-0a-9qS"/>
+                            <constraint firstItem="BTu-hT-SAn" firstAttribute="centerX" secondItem="nij-ws-tLh" secondAttribute="centerX" id="wci-6R-xgF"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Warenkorb" id="PZs-96-xGJ"/>
                     <connections>
                         <outlet property="bagTableView" destination="nij-ws-tLh" id="GLB-ws-LHl"/>
+                        <outlet property="priceLabel" destination="L1h-Sp-9r1" id="xNd-zy-OxN"/>
+                        <outlet property="totalPriceLabel" destination="GIy-ca-fVa" id="ZnW-8N-Wu3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5aJ-US-8BD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -485,6 +522,9 @@
         <image name="plus.app.fill" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
