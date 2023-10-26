@@ -12,6 +12,10 @@ import Alamofire
 class ProductsDaoRepository {
     var productsList = BehaviorSubject<[Product]>(value: [Product]())
     
+   
+    
+    var allProducts: [Product] = []
+    
     func uploadProducts() {
         
         AF.request("http://kasimadalan.pe.hu/yemekler/tumYemekleriGetir.php", method: .get).response { response in
@@ -31,21 +35,17 @@ class ProductsDaoRepository {
     
     
     func search(searchWord: String) {
-        let params: Parameters = ["yemek_adi":searchWord]
+        let lowercaseSearchWord = searchWord.lowercased()
         
-        AF.request("http://kasimadalan.pe.hu/yemekler/tumYemekleriGetir.php", method: .post, parameters: params).response { response in
-            if let data = response.data {
-                do {
-                    let answer = try JSONDecoder().decode(ProductsResponse.self, from: data)
-                    if let list = answer.yemekler {
-                        self.productsList.onNext(list)
-                    }
-                } catch {
-                    print(error.localizedDescription)
-                    
-                }
+        var searchResult = [Product]()
+        
+        for product in allProducts {
+            if product.yemek_adi!.lowercased().contains(lowercaseSearchWord) {
+                searchResult.append(product)
             }
         }
+        
+        self.productsList.onNext(searchResult)
     }
     
   

@@ -56,7 +56,11 @@ class HomePageVC: UIViewController {
 
 extension HomePageVC : UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        viewModel.search(searchWord: searchText)
+        if searchText.isEmpty {
+            self.viewModel.uploadProduct()
+        } else {
+            self.viewModel.search(searchWord: searchText)
+        }
     }
 }
 

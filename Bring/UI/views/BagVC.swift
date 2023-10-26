@@ -17,6 +17,8 @@ class BagVC: UIViewController {
     
     @IBOutlet weak var totalPriceLabel: UILabel!
     
+    @IBOutlet weak var payButton: UIButton!
+    
     
     var viewModel = BagViewModel()
     
@@ -28,15 +30,10 @@ class BagVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        payButton.layer.cornerRadius = 10.0
+        
         navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.trash, target: self, action: #selector(deleteButton))
         
-        viewModel.totalPriceUpdated = { [weak self] totalPrice in
-                    DispatchQueue.main.async {
-                        self?.totalPriceLabel.text = "\(totalPrice)$"
-                    }
-                }
-        
-    
         
 
         bagTableView.delegate = self
@@ -56,19 +53,19 @@ class BagVC: UIViewController {
         
     }
     
-    
+   
     override func viewWillAppear(_ animated: Bool) {
         viewModel.uploadBag()
-        viewModel.updateTotalPriceLabel()
-        //updateTotalPriceLabel()
+        updateTotalPriceLabel()
     }
+   
     
     @IBAction func payButton(_ sender: Any) {
         
     }
     
     
-    /*
+    
     func updateTotalPriceLabel() {
         let totalAmount = bagList.reduce(0.0) { (result, item) -> Double in
             if let priceString = item.yemek_fiyat, let price = Double(priceString) {
@@ -85,7 +82,7 @@ class BagVC: UIViewController {
       
         
     }
-    */
+    
 
 }
 
@@ -167,8 +164,8 @@ extension BagVC : UITableViewDelegate, UITableViewDataSource {
     @objc func deleteButton() {
         let trashMode = bagTableView.isEditing
         bagTableView.setEditing(!trashMode, animated: true)
-        
-        viewModel.updateTotalPriceLabel()
+        updateTotalPriceLabel()
+       
     }
     
     
