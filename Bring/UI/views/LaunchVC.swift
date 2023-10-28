@@ -10,8 +10,10 @@ import Lottie
 
 class LaunchVC: UIViewController {
 
+    // MARK: - Properties
     var animationView: LottieAnimationView?
     
+    // MARK: - UI Elements
     @IBOutlet weak var startButton: UIButton!
     
     
@@ -31,7 +33,7 @@ class LaunchVC: UIViewController {
        
     }
     
-
+    // MARK: - Actions
     @IBAction func startButtonTapped(_ sender: Any) {
         performSegue(withIdentifier: "toHome", sender: nil)
     }

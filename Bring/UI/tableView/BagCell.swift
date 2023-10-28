@@ -9,22 +9,12 @@ import UIKit
 
 class BagCell: UITableViewCell {
 
-  
-    
+    // MARK: - UI Elements
     @IBOutlet weak var cellbackground: UIView!
-    
     @IBOutlet weak var imageViewBag: UIImageView!
-    
     @IBOutlet weak var yemekAdiLabel: UILabel!
-    
     @IBOutlet weak var yemekFiyatiLabel: UILabel!
-    
     @IBOutlet weak var urunSayisiLabel: UILabel!
-    
-   
-    
-   
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()

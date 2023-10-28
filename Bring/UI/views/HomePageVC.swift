@@ -12,19 +12,15 @@ class HomePageVC: UIViewController {
 
     // MARK: - UI Elements
     @IBOutlet weak var collectionViewProduct: UICollectionView!
-    
     @IBOutlet weak var searchbar: UISearchBar!
     
+    // MARK: - Properties
     var productsList = [Product]()
-   
-    
-    
     var bagViewModel = BagViewModel()
- 
-   var viewModel = HomaPageViewModel()
-    
+    var viewModel = HomaPageViewModel()
     var productNumber = 1
     
+    // MARK: - viewDidiLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,21 +35,26 @@ class HomePageVC: UIViewController {
         })
         
         let style = UICollectionViewFlowLayout()
-        style.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        style.sectionInset = UIEdgeInsets(top: 10, 
+                                          left: 10,
+                                          bottom: 10,
+                                          right: 10)
+        
         style.minimumInteritemSpacing = 10
         style.minimumLineSpacing = 10
         
         let viewWidth = UIScreen.main.bounds.width
         let itemWidth = (viewWidth - 30) / 2
         
-        style.itemSize = CGSize(width: itemWidth, height: itemWidth * 1.6)
+        style.itemSize = CGSize(width: itemWidth, 
+                                height: itemWidth * 1.6)
         
         collectionViewProduct.collectionViewLayout = style
       }
     
 
 }
-
+// MARK: - Extensions
 extension HomePageVC : UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
@@ -79,8 +80,6 @@ extension HomePageVC : UICollectionViewDelegate, UICollectionViewDataSource, Cel
                 cell.imageView.kf.setImage(with: url)
             }
         }
-        
-        
         cell.nameLabel.text = product.yemek_adi
         cell.priceLabel.text = "\(product.yemek_fiyat!) $"
         
@@ -92,9 +91,7 @@ extension HomePageVC : UICollectionViewDelegate, UICollectionViewDataSource, Cel
         cell.indexPath = indexPath
         
         return cell
-        
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let product = productsList[indexPath.row]
@@ -119,18 +116,15 @@ extension HomePageVC : UICollectionViewDelegate, UICollectionViewDataSource, Cel
         bagViewModel.addToBag(yemek_adi: product.yemek_adi!, yemek_resim_adi: product.yemek_resim_adi!, yemek_fiyat: Int(product.yemek_fiyat!)!, yemek_siparis_adet: productNumber, kullanici_adi:"tolga_sarikaya")
        
         handleSuccessfulAddition()
-     
     }
     
     func handleSuccessfulAddition() {
-        let alert = UIAlertController(title: "Successful", message: "Product added to bag", preferredStyle: UIAlertController.Style.alert)
-          
+        let alert = UIAlertController(title: "Successful", message: "Product added to bag", 
+                                      preferredStyle: UIAlertController.Style.alert)
         let okButton = UIAlertAction(title: "Okey", style: .destructive)
         alert.addAction(okButton)
-        
         self.present(alert, animated: true)
     }
-    
 }
 
 

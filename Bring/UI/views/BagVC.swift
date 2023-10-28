@@ -19,23 +19,17 @@ class BagVC: UIViewController {
     
     @IBOutlet weak var payButton: UIButton!
     
-    
+    // MARK: - Properties
     var viewModel = BagViewModel()
-    
     var bagList = [BringTheFood]()
     
-   
-    
-   
-    override func viewDidLoad() {
+     override func viewDidLoad() {
         super.viewDidLoad()
         
         payButton.layer.cornerRadius = 10.0
         
         navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.trash, target: self, action: #selector(deleteButton))
         
-        
-
         bagTableView.delegate = self
         bagTableView.dataSource = self
         
@@ -48,24 +42,28 @@ class BagVC: UIViewController {
                 self.bagTableView.reloadData()
             }
         })
-        
-       
-        
     }
     
-   
+    // MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         viewModel.uploadBag()
         updateTotalPriceLabel()
     }
    
-    
+    // MARK: - Actions
     @IBAction func payButton(_ sender: Any) {
         
     }
     
+    @objc func deleteButton() {
+        let trashMode = bagTableView.isEditing
+        bagTableView.setEditing(!trashMode, animated: true)
+        updateTotalPriceLabel()
+       
+    }
     
     
+    // MARK: - Funtions
     func updateTotalPriceLabel() {
         let totalAmount = bagList.reduce(0.0) { (result, item) -> Double in
             if let priceString = item.yemek_fiyat, let price = Double(priceString) {
@@ -79,15 +77,10 @@ class BagVC: UIViewController {
         DispatchQueue.main.async {
             self.totalPriceLabel.text = formattedTotalAmount
         }
-      
-        
     }
-    
-
 }
 
-
-
+// MARK: - Extensions
 extension BagVC : UITableViewDelegate, UITableViewDataSource {
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -108,14 +101,13 @@ extension BagVC : UITableViewDelegate, UITableViewDataSource {
                 }
             }
             
-            
             cell.backgroundColor = UIColor(white: 0.95, alpha: 1)
             cell.cellbackground.layer.cornerRadius = 10.0
             cell.selectionStyle = .none
             return cell
-       
     }
     
+    // MARK: - Funtions
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { contextualAction, view, bool in
             let product = self.bagList[indexPath.row]
@@ -155,21 +147,5 @@ extension BagVC : UITableViewDelegate, UITableViewDataSource {
                 self.present(alert, animated: true)
             }
         }
-        
-        
     }
-    
-   
-    
-    @objc func deleteButton() {
-        let trashMode = bagTableView.isEditing
-        bagTableView.setEditing(!trashMode, animated: true)
-        updateTotalPriceLabel()
-       
-    }
-    
-    
-    
-    
-    
 }

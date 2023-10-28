@@ -26,18 +26,13 @@ class DetailsVC: UIViewController {
     
     @IBOutlet weak var rabatLabel: UILabel!
     
-  
+    // MARK: - Properties
     var viewModel = BagViewModel()
-    
     var product : Product?
-    
-    
     var numberOfProduct = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-       
         
         minLabel.layer.masksToBounds = true
         minLabel.layer.cornerRadius = 5
@@ -69,9 +64,6 @@ class DetailsVC: UIViewController {
     
 
     // MARK: - Actions
-    
-    
-    
     @IBAction func minButton(_ sender: Any) {
         
         if let p = product, let priceString = p.yemek_fiyat, let price = Int(priceString) {
@@ -80,10 +72,8 @@ class DetailsVC: UIViewController {
                 productNumber.text = "\(numberOfProduct)"
                 let totalPrice = numberOfProduct * price
                 productPriceLabel.text = "\(totalPrice) $"
-                
             }
         }
-      
     }
     
     @IBAction func plusButton(_ sender: Any) {
@@ -94,8 +84,6 @@ class DetailsVC: UIViewController {
             let totalPrice = numberOfProduct * price
             productPriceLabel.text = "\(totalPrice) $"
         }
-       
-       
     }
     
     @IBAction func AddToButton(_ sender: Any) {
@@ -105,13 +93,9 @@ class DetailsVC: UIViewController {
            viewModel.addToBag(yemek_adi: p.yemek_adi!, yemek_resim_adi: p.yemek_resim_adi!, yemek_fiyat: totalPrice, yemek_siparis_adet: quantity, kullanici_adi:"tolga_sarikaya")
            
             handleSuccessfulAddition()
-            
-          
-            
         } else {
             handleError()
         }
-        
     }
     
     func handleSuccessfulAddition() {
@@ -131,6 +115,4 @@ class DetailsVC: UIViewController {
         
         self.present(alert, animated: true)
     }
-    
-
 }
