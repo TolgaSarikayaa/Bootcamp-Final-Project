@@ -11,7 +11,15 @@ import Alamofire
 
 class ProductsDaoRepository {
     var productsList = BehaviorSubject<[Product]>(value: [Product]())
-    var allProducts: [Product] = []
+   
+    
+    let db:FMDatabase?
+    
+    init() {
+        let bundleWay = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+        let databaseURL = URL(fileURLWithPath: bundleWay).appendingPathComponent("products.sqlite")
+        db = FMDatabase(path: databaseURL.path)
+    }
     
     // MARK: - Funtions
     func uploadProducts() {
@@ -32,16 +40,28 @@ class ProductsDaoRepository {
     }
     
     func search(searchWord: String) {
-        let lowercaseSearchWord = searchWord.lowercased()
+        db?.open()
+        var list = [Product]()
+       
         
-        var searchResult = [Product]()
-        
-        for product in allProducts {
-            if product.yemek_adi!.lowercased().contains(lowercaseSearchWord) {
-                searchResult.append(product)
+        do {
+            let result = try db!.executeQuery("SELECT * FROM products WHERE yemek_adi like '%\(searchWord)%' ",
+                                              values: nil)
+            
+            while result.next(){
+                let products = Product(yemek_id: result.string(forColumn: "yemek_id")!,
+                                       yemek_adi: result.string(forColumn: "yemek_adi")!,
+                                       yemek_resim_adi: "",
+                                       yemek_fiyat: "")
+                
+                list.append(products)
             }
+            productsList.onNext(list)
+        } catch {
+            print(error.localizedDescription)
         }
-        self.productsList.onNext(searchResult)
+        db?.close()
+        
     }
     
 }
