@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class DetailsVC: UIViewController {
+class DetailsVC: UIViewController  {
 
     // MARK: - UI Elements
     
@@ -30,6 +30,7 @@ class DetailsVC: UIViewController {
     var viewModel = BagViewModel()
     var product : Product?
     var numberOfProduct = 1
+    var badgeCount: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,6 +92,21 @@ class DetailsVC: UIViewController {
             let totalPrice = quantity * price
 
            viewModel.addToBag(yemek_adi: p.yemek_adi!, yemek_resim_adi: p.yemek_resim_adi!, yemek_fiyat: totalPrice, yemek_siparis_adet: quantity, kullanici_adi:"tolga_sarikaya")
+            
+            if let tabBarController = self.tabBarController {
+                if let tabBarItem = tabBarController.tabBar.items?[1] {
+                    if let currentBadgeValue = tabBarItem.badgeValue, let currentCount = Int(currentBadgeValue) {
+                        let newCount = currentCount + quantity
+                        tabBarItem.badgeValue = String(newCount)
+                    } else {
+                        tabBarItem.badgeValue = productNumber.text
+                        
+                        if let newCount = Int(productNumber.text ?? "0") {
+                            //tabBarController.updateBadge(count: newCount)
+                        }
+                    }
+                }
+            }
            
             handleSuccessfulAddition()
         } else {
@@ -115,4 +131,6 @@ class DetailsVC: UIViewController {
         
         self.present(alert, animated: true)
     }
+    
 }
+

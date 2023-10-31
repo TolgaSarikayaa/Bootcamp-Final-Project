@@ -49,10 +49,16 @@ class ProductsDaoRepository {
                                               values: nil)
             
             while result.next(){
-                let products = Product(yemek_id: result.string(forColumn: "yemek_id")!,
-                                       yemek_adi: result.string(forColumn: "yemek_adi")!,
-                                       yemek_resim_adi: "",
-                                       yemek_fiyat: "")
+                let yemek_id = result.string(forColumn: "yemek_id")!
+                let yemek_adi = result.string(forColumn: "yemek_adi")!
+                let yemek_resim_adi = ""
+                let yemek_fiyat = ""
+                
+                
+                let products = Product(yemek_id: yemek_id,
+                                       yemek_adi: yemek_adi,
+                                       yemek_resim_adi: yemek_resim_adi,
+                                       yemek_fiyat: yemek_fiyat)
                 
                 list.append(products)
             }
@@ -60,6 +66,7 @@ class ProductsDaoRepository {
         } catch {
             print(error.localizedDescription)
         }
+        
         db?.close()
         
     }
