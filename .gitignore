@@ -1,13 +1,2 @@
-products.sqlite
-Bring-Bridging-Header.h
-FMDatabase.h
-FMDatabase.m
-FMDatabaseAdditions.h
-FMDatabaseAdditions.m
-FMDatabasePool.h
-FMDatabasePool.m
-FMDatabaseQueue.h
-FMDatabaseQueue.m
-FMDB.h
-FMResultSet.h
-FMResultSet.m
+Bring/*.h
+Bring/*.m
