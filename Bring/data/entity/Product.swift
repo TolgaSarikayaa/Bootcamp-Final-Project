@@ -25,6 +25,5 @@ class Product : Codable {
          self.yemek_resim_adi = yemek_resim_adi
          self.yemek_fiyat = yemek_fiyat
      }
-    
-   
+
 }
