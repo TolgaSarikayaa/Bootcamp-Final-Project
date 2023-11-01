@@ -1,2 +1,14 @@
 Bring/*.h
 Bring/*.m
+
+Bring-Bridging-Header
+FMDatabase
+FMDatabase
+FMDatabaseAdditions
+FMDatabaseAdditions
+FMDatabasePool
+FMDatabasePool.m
+FMDatabaseQueue
+FMDatabaseQueue
+FMDB
+FMResultSet
