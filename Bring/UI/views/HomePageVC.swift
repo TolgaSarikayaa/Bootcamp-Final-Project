@@ -95,10 +95,7 @@ extension HomePageVC : UICollectionViewDelegate, UICollectionViewDataSource, Cel
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let product = productsList[indexPath.row]
-        
         performSegue(withIdentifier: "toDetail", sender: product)
-        
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

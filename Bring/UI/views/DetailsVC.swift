@@ -100,10 +100,7 @@ class DetailsVC: UIViewController  {
                         tabBarItem.badgeValue = String(newCount)
                     } else {
                         tabBarItem.badgeValue = productNumber.text
-                        
-                        if let newCount = Int(productNumber.text ?? "0") {
-                            //tabBarController.updateBadge(count: newCount)
-                        }
+                    
                     }
                 }
             }
