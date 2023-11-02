@@ -99,7 +99,7 @@ class DetailsVC: UIViewController  {
                         let newCount = currentCount + quantity
                         tabBarItem.badgeValue = String(newCount)
                     } else {
-                        tabBarItem.badgeValue = productNumber.text
+                        tabBarItem.updateBadgeValue(productNumber.text)
                     
                     }
                 }

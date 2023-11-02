@@ -26,11 +26,11 @@ class BagVC: UIViewController {
      override func viewDidLoad() {
         super.viewDidLoad()
          
-         if let tabBarController = self.tabBarController {
-             if let tabBarItem = tabBarController.tabBar.items?[1] {
-                 tabBarItem.badgeValue = nil
+         
+             if let tabBarItem = tabBarController?.tabBar.items?[1] {
+                 tabBarItem.updateBadgeValue(nil)
              }
-         }
+         
         
         payButton.layer.cornerRadius = 10.0
         
@@ -153,5 +153,11 @@ extension BagVC : UITableViewDelegate, UITableViewDataSource {
                 self.present(alert, animated: true)
             }
         }
+    }
+}
+
+extension UITabBarItem {
+    func updateBadgeValue(_ newValue: String?) {
+        self.badgeValue = newValue
     }
 }
