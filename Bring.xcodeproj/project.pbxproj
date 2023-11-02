@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		140C6B512AEEBFE5006E03EC /* products.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 140C6B502AEEBFE5006E03EC /* products.sqlite */; };
+		140C6B5E2AF42B04006E03EC /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 140C6B542AF42B03006E03EC /* FMDatabase.m */; };
+		140C6B5F2AF42B04006E03EC /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 140C6B582AF42B04006E03EC /* FMDatabaseQueue.m */; };
+		140C6B602AF42B04006E03EC /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 140C6B592AF42B04006E03EC /* FMResultSet.m */; };
+		140C6B612AF42B04006E03EC /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 140C6B5A2AF42B04006E03EC /* FMDatabasePool.m */; };
+		140C6B622AF42B04006E03EC /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 140C6B5B2AF42B04006E03EC /* FMDatabaseAdditions.m */; };
 		147CF7742ADFF20F0031E646 /* BringTheFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147CF7732ADFF20F0031E646 /* BringTheFood.swift */; };
 		147CF7762ADFFCD30031E646 /* BringTheFoodResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147CF7752ADFFCD30031E646 /* BringTheFoodResponse.swift */; };
 		147CF7782AE143270031E646 /* LaunchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147CF7772AE143270031E646 /* LaunchVC.swift */; };
@@ -59,6 +64,17 @@
 		140C6B3E2AEEBE98006E03EC /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		140C6B3F2AEEBF5B006E03EC /* Bring-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bring-Bridging-Header.h"; sourceTree = "<group>"; };
 		140C6B502AEEBFE5006E03EC /* products.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = products.sqlite; sourceTree = "<group>"; };
+		140C6B532AF42B03006E03EC /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		140C6B542AF42B03006E03EC /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		140C6B552AF42B03006E03EC /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		140C6B562AF42B04006E03EC /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		140C6B572AF42B04006E03EC /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		140C6B582AF42B04006E03EC /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		140C6B592AF42B04006E03EC /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		140C6B5A2AF42B04006E03EC /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		140C6B5B2AF42B04006E03EC /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		140C6B5C2AF42B04006E03EC /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		140C6B5D2AF42B04006E03EC /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		147CF7732ADFF20F0031E646 /* BringTheFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BringTheFood.swift; sourceTree = "<group>"; };
 		147CF7752ADFFCD30031E646 /* BringTheFoodResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BringTheFoodResponse.swift; sourceTree = "<group>"; };
 		147CF7772AE143270031E646 /* LaunchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchVC.swift; sourceTree = "<group>"; };
@@ -153,6 +169,17 @@
 				147CF77C2AE149AB0031E646 /* cart.json */,
 				14A5E8C82AD420BA006A9D57 /* LaunchScreen.storyboard */,
 				14A5E8CB2AD420BA006A9D57 /* Info.plist */,
+				140C6B5D2AF42B04006E03EC /* FMDatabase.h */,
+				140C6B542AF42B03006E03EC /* FMDatabase.m */,
+				140C6B552AF42B03006E03EC /* FMDatabaseAdditions.h */,
+				140C6B5B2AF42B04006E03EC /* FMDatabaseAdditions.m */,
+				140C6B562AF42B04006E03EC /* FMDatabasePool.h */,
+				140C6B5A2AF42B04006E03EC /* FMDatabasePool.m */,
+				140C6B572AF42B04006E03EC /* FMDatabaseQueue.h */,
+				140C6B582AF42B04006E03EC /* FMDatabaseQueue.m */,
+				140C6B5C2AF42B04006E03EC /* FMDB.h */,
+				140C6B532AF42B03006E03EC /* FMResultSet.h */,
+				140C6B592AF42B04006E03EC /* FMResultSet.m */,
 			);
 			path = Bring;
 			sourceTree = "<group>";
@@ -400,15 +427,20 @@
 				14A5E9432AD44815006A9D57 /* HomaPageViewModel.swift in Sources */,
 				14A5E9412AD447B1006A9D57 /* ProductsDaoRepository.swift in Sources */,
 				14A5E8F62AD434D9006A9D57 /* Product.swift in Sources */,
+				140C6B5E2AF42B04006E03EC /* FMDatabase.m in Sources */,
+				140C6B612AF42B04006E03EC /* FMDatabasePool.m in Sources */,
 				14A5E8F82AD43551006A9D57 /* HomePageVC.swift in Sources */,
 				14A5E9472AD54F5A006A9D57 /* DetailsVC.swift in Sources */,
+				140C6B622AF42B04006E03EC /* FMDatabaseAdditions.m in Sources */,
 				14A5E8F42AD433F0006A9D57 /* productsCell.swift in Sources */,
 				14A5E8BE2AD420B8006A9D57 /* AppDelegate.swift in Sources */,
 				14A5E9492AD6B3AF006A9D57 /* BagVC.swift in Sources */,
+				140C6B5F2AF42B04006E03EC /* FMDatabaseQueue.m in Sources */,
 				14A5E9452AD450F8006A9D57 /* ProductsResponse.swift in Sources */,
 				14A5E8C02AD420B8006A9D57 /* SceneDelegate.swift in Sources */,
 				14A5E9512AD7E27A006A9D57 /* BagDaoRepository.swift in Sources */,
 				147CF7762ADFFCD30031E646 /* BringTheFoodResponse.swift in Sources */,
+				140C6B602AF42B04006E03EC /* FMResultSet.m in Sources */,
 				147CF7742ADFF20F0031E646 /* BringTheFood.swift in Sources */,
 				14A5E9532AD7E3A4006A9D57 /* BagViewModel.swift in Sources */,
 				147CF7782AE143270031E646 /* LaunchVC.swift in Sources */,

@@ -1,4 +1,14 @@
 *.h
 *.m
 
+FMDatabase
+FMDatabase
+FMDatabaseAdditions
+FMDatabaseAdditions
+FMDatabasePool
+FMDatabasePool.m
+FMDatabaseQueue
+FMDatabaseQueue
+FMDB
+FMResultSet
 
