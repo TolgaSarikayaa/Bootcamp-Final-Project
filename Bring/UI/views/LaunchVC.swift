@@ -13,12 +13,15 @@ class LaunchVC: UIViewController {
     // MARK: - Properties
     var animationView: LottieAnimationView?
     
+    
     // MARK: - UI Elements
     @IBOutlet weak var startButton: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         animationView = .init(name: "cart")
         animationView?.frame = view.bounds

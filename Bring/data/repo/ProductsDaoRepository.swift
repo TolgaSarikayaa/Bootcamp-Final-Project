@@ -11,6 +11,7 @@ import Alamofire
 
 class ProductsDaoRepository {
     var productsList = BehaviorSubject<[Product]>(value: [Product]())
+    var productsListWithImagesAndPrices = BehaviorSubject<[Product]>(value: [Product]())
    
     
     let db:FMDatabase?
@@ -30,6 +31,7 @@ class ProductsDaoRepository {
                     let response = try JSONDecoder().decode(ProductsResponse.self, from: data)
                     if let list = response.yemekler {
                         self.productsList.onNext(list)
+                        self.productsListWithImagesAndPrices.onNext(list)
                     }
                 } catch {
                     print(error.localizedDescription)
@@ -45,7 +47,7 @@ class ProductsDaoRepository {
        
         
         do {
-            let result = try db!.executeQuery("SELECT * FROM products WHERE yemek_adi like '%\(searchWord)%' ",
+            let result = try db!.executeQuery("SELECT * FROM products WHERE yemek_adi like '%\(searchWord)%'",
                                               values: nil)
             
             while result.next(){

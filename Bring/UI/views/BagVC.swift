@@ -46,6 +46,7 @@ class BagVC: UIViewController {
             
             DispatchQueue.main.async {
                 self.bagTableView.reloadData()
+                self.updateTotalPriceLabel()
             }
         })
     }
@@ -53,7 +54,6 @@ class BagVC: UIViewController {
     // MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         viewModel.uploadBag()
-        updateTotalPriceLabel()
     }
    
     // MARK: - Actions
@@ -161,3 +161,4 @@ extension UITabBarItem {
         self.badgeValue = newValue
     }
 }
+
