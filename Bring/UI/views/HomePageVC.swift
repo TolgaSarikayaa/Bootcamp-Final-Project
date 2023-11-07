@@ -111,8 +111,10 @@ extension HomePageVC : UICollectionViewDelegate, UICollectionViewDataSource, Cel
         let product = productsList[indexPath.row]
         
         bagViewModel.addToBag(yemek_adi: product.yemek_adi!, yemek_resim_adi: product.yemek_resim_adi!, yemek_fiyat: Int(product.yemek_fiyat!)!, yemek_siparis_adet: productNumber, kullanici_adi:"tolga_sarikaya")
-        if let tabBarItem = tabBarController?.tabBar.items?[1] {
-            tabBarItem.updateBadgeValue("1")
+      if let tabBarController = self.tabBarController {
+            if let tabBarItem = tabBarController.tabBar.items?[1] {
+                tabBarItem.updateBadgeValue("1")
+            }
         }
         handleSuccessfulAddition()
     }
