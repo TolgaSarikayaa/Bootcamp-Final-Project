@@ -34,6 +34,8 @@ class HomePageVC: UIViewController {
             self.collectionViewProduct.reloadData()
         })
         
+      
+        
         let style = UICollectionViewFlowLayout()
         style.sectionInset = UIEdgeInsets(top: 10, 
                                           left: 10,
@@ -60,7 +62,10 @@ extension HomePageVC : UISearchBarDelegate {
         if searchText.isEmpty {
             self.viewModel.uploadProduct()
         } else {
-            self.viewModel.search(searchWord: searchText)
+            let filteredProducts = self.productsList.filter { product in
+                return product.yemek_adi!.lowercased().contains(searchText.lowercased())
+            }
+            self.viewModel.productsList.onNext(filteredProducts)
         }
     }
 }

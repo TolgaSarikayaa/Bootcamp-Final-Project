@@ -1,5 +1,6 @@
 *.h
 *.m
+*.sqlite
 
 FMDatabase
 FMDatabase
