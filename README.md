@@ -20,4 +20,5 @@ Welcome to **Bring**! This iOS application revolutionizes your shopping experien
 - **Engaging Launch**: Incorporates Lottie library animations for a captivating launch screen experience.
 
 ![bring](https://github.com/TolgaSarikayaa/Bootcamp-Final-Project/assets/113526329/acd963ad-e0da-4917-bb6d-9fab097d5d0d)
-![Preview](https://github.com/TolgaSarikayaa/Bootcamp-Final-Project/assets/113526329/501ee63a-fe61-43e3-93ce-c0ac3e4000bc)
+<img width="3327" alt="Preview2" src="https://github.com/TolgaSarikayaa/Bootcamp-Final-Project/assets/113526329/9180fb28-416c-43cd-8965-6e4efab5ceb3">
+
